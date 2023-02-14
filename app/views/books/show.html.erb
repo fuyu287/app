@@ -1,0 +1,30 @@
+
+<h5>本詳細</h5>
+
+
+ <div class="h8">
+  <p><%= @book.book_name %></p>
+ </div>
+<div class="meme">
+ <div class="sakusya">
+  <p><%= @book.author_name %></p>
+ </div>
+ <nav>
+  <div class="sif">
+   <%= image_tag @book.image_url, size: "300x400" if @book.image? %>
+  </div>
+ </nav>
+ 
+
+  <div class="sig">
+   <p>¥<%= @book.price %></p>
+  </div>
+ <div class="bunn">
+  <p><%= @book.body %></p>
+ </div>
+  
+</div>
+
+<div class="ta">
+ <%= link_to "本一覧に戻る", books_path %>
+</div>

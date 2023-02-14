@@ -1,0 +1,71 @@
+<div class="all">
+ 
+  <div class="hu">
+  <div class=to><h1>一覧</h1></div>
+  </div>
+
+  <div class=ta>
+
+  <% if user_signed_in? && current_user.admin == "社員" %>
+      <button class="btn-32">
+      <%= link_to "新規投稿ページへ", new_book_path %>
+      </button>
+      <% else %>
+  <% end %>
+
+  </div>
+
+  <div class=to>
+  <div class=ta>
+   <button class="btn-32">
+   <%= form_tag books_path, method: :get, class: 'boards__searchForm' do %>
+   <%= select_tag :tag_id,
+                 options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                 {
+                   prompt: 'タグで絞り込み検索',
+                   onchange: 'submit(this.form);'
+                 }
+                 %>
+   <% end %>
+   </button>
+  </div>
+  </div>
+
+
+ 
+
+
+  <div class="books-container">
+   <% @books.each do |t| %>
+    <div class="example-1 card">
+     <div class="wrapper" style="background_image: t.image_url, size: "200x240" if t.image? ">
+      <%= image_tag t.image_url, size: "200x260" if t.image? %>
+      <div class="data">
+       <div class="content">
+         <div class="dai">
+          <span class="author"><%= t.author_name %></span>
+         </div>
+          <p class="card_maintitle"><%= t.book_name %></p>
+          
+          <p class="text">¥<%= t.price %></p>
+          <% if user_signed_in? && current_user.admin == "社員" %>
+           <p class="text2"><%= link_to "詳細へ", book_path(t.id) %></p>
+           <p class="text2"><%= link_to "編集する", edit_book_path(t.id) %></p>
+           <p class="text2"><%= link_to "削除する", "/books/#{t.id}", method: :delete %></p>
+           <% else %>
+           <p class="text2"><%= link_to "詳細へ", book_path(t.id) %></p>
+          <% end %>
+
+        </div>
+
+
+      
+      </div>
+     </div>
+    </div>
+   <% end %>
+  </div>
+
+
+
+</div>

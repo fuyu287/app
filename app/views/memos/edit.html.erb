@@ -1,0 +1,13 @@
+<%= form_for @memo do |f| %>
+    
+    <%= f.label :タイトル %>
+    <%= f.text_field :memo_name, :size => 140 %>
+    <%= f.submit "編集する" %>
+
+    <p><%= f.label :メモ %>
+       <%= f.text_field :memo_body, :size => 140 %> 
+       <%= f.submit "編集する" %>
+    </p>
+  <% end %>
+
+  <%= link_to "マイページに戻る", user_path(current_user.id) %>

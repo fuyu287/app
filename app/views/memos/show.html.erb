@@ -1,0 +1,36 @@
+ <h5>詳細</h5>
+
+
+ <div class="h8">
+  <p><%= @memo.memo_name %></p>
+ </div>
+
+<div class="meme">
+ <nav>
+  <div class="sif">
+  <p><%= image_tag @memo.image_url, size: "300x400" if @memo.image? %></p>
+  </div>
+ </nav>
+ <div class="bunn">
+  <p><%= @memo.memo_body %></p>
+  <p><%= @memo.memo_date %></p>
+ </div>
+ <div class="sig">
+  <p><%= @memo.created_at %></p>
+ </div>
+</div>
+
+ <div class="sit">
+  <div class="ta">
+   <p><%= link_to "編集", edit_memo_path(@memo.id) %></p>
+  </div>
+  <div class="ta">
+   <p><%= link_to "削除", "/memos/#{@memo.id}", method: :delete %></p>
+  </div>
+  <div class="ta">
+   <p><%= link_to "マイページに戻る", user_path(current_user.id) %></p>
+  </div>
+ </div>
+
+
+ 

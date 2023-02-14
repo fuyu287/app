@@ -1,0 +1,47 @@
+<div class="hi">
+ <div class="kii">
+  <h2>Login</h2>
+ </div>
+ 
+ <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  <div class="field">
+    <h3>mail</h3><br />
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+    <div class="field">
+    <h3>password</h3><br />
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+    </div>
+      <div class="field">
+      <h3>remember me</h3>
+      </div>
+  <% end %>
+
+  <h4>
+  <div class="b46">
+  <button class="btn-46">
+  
+    <%= f.submit "Log in", class:"mon"%>
+
+  </button>
+  </div>
+  </h3>
+
+ <% end %>
+
+
+  <div class="field">
+   <%= render "users/shared/links" %>
+  </div>
+ 
+</div>

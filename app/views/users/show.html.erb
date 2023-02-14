@@ -1,0 +1,25 @@
+ <div class="hi"><h1>マイページ</h1>
+  <p>名前 : <%= @user.name %></p>
+  <p>メールアドレス : <%= @user.email %></p>
+ 
+ <% if current_user.id == @user.id %>
+  <%= link_to "編集", edit_user_registration_path %>
+ <% end %>
+</div>
+
+<h2>メモ一覧</h2>
+<div class="hi">
+  <%= link_to "新規投稿", new_memo_path %>
+</div>
+
+<div class="memocon">
+  <% @user.memos.each do |t| %>
+       <%= image_tag t.image_url, size: "180x240" if t.image? %>
+       <%= t.memo_name %>
+       <%= t.memo_date %>
+       <%= link_to "詳細", memo_path(t.id) %>
+       <%= link_to "編集", edit_memo_path(t.id) %>
+       <%= link_to "削除", "/memos/#{t.id}", method: :delete %>
+  <% end %> 
+</div>
+

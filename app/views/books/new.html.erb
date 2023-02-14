@@ -1,0 +1,45 @@
+<h1>library</h1>
+<h3>新規Book</h3>
+<%= form_for @book do |f| %>
+
+  <div class="check_box">
+  <span>タグ</span>
+  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+   <div>
+     <%= tag.label do %>
+       <%= tag.check_box %>
+       <%= tag.text %>
+     <% end %>
+   </div>
+  <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :タイトル %>
+    <%= f.text_field :book_name, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :作者名 %>
+    <%= f.text_field :author_name, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :値段 %>
+    <%= f.text_field :price, :size => 10 %>
+  </div>
+
+  <div class="field">
+  <%= f.label :あらすじ %>
+  <%= f.text_field :body, :size => 30 %>
+  </div>
+
+  <div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  </div>
+
+  <%= f.submit "本を投稿する" %>
+<% end %>
+
+<%= link_to "本一覧に戻る", books_path %>

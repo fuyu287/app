@@ -1,14 +1,9 @@
-# fly.toml file generated for yrarbil on 2023-02-14T17:49:04+09:00
+# fly.toml file generated for yrarbil on 2023-02-14T20:05:00+09:00
 
 app = "yrarbil"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
-
-[build]
-  [build.args]
-    BUILD_COMMAND = "bin/rails fly:build"
-    SERVER_COMMAND = "bin/rails fly:server"
 
 [deploy]
   release_command = "bin/rails fly:release"

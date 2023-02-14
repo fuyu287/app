@@ -64,3 +64,4 @@ gem 'dotenv-rails'
 group :production do
     gem "pg", "~> 1.4"
 end
+gem "dockerfile-rails", ">= 1.0", :group => :development

@@ -229,8 +229,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.0-x86_64-darwin)
-    sqlite3 (1.6.0-x86_64-linux)
     ssrf_filter (1.1.1)
     thor (1.2.1)
     tilt (2.0.11)
@@ -290,7 +288,6 @@ DEPENDENCIES
   selenium-webdriver (>= 4.0.0.rc1)
   spring
   spring-commands-rspec
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
